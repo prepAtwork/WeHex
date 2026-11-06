@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html, body, #root {
+    background-color: #00BE80;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
@@ -29,13 +35,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f1115;
+  background: #0a4030;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2e37;
+  background: #009362;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b4252;
+  background: #007a52;
 }
-

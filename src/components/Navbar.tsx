@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
+import grabkyLogo from '../assets/grabky-logo@2x.png';
 
 interface NavbarProps {
   onContactClick?: () => void;
@@ -15,9 +16,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
           
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-950 font-sans">
-              WeHexa
-            </span>
+            <img
+              src={grabkyLogo}
+              alt="Grabky"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </a>
 
           {/* Desktop Nav Links */}

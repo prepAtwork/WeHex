@@ -65,7 +65,7 @@ export const Portfolio: React.FC = () => {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="portfolio" className="bg-[#121316] py-20 sm:py-28 text-white">
+    <section id="portfolio" className="bg-[#121316] py-20 sm:py-28 text-white w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

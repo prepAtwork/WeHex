@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import grabkyLogoWhite from '../assets/grabky-logo-white@2x.png';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#111214] text-white pt-16 sm:pt-20 pb-12 rounded-t-[36px] sm:rounded-t-[44px] -mt-6 relative z-20">
+    <footer className="bg-[#111214] text-white pt-16 sm:pt-20 pb-12 rounded-t-[36px] sm:rounded-t-[44px] -mt-6 relative z-20 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Row */}
@@ -11,8 +12,12 @@ export const Footer: React.FC = () => {
           
           {/* Left Brand Column */}
           <div className="md:col-span-5 flex flex-col items-start">
-            <a href="#" className="text-3xl font-extrabold tracking-tight text-white mb-4">
-              WeHexa
+            <a href="#" className="flex items-center gap-2 mb-4 group">
+              <img
+                src={grabkyLogoWhite}
+                alt="Grabky"
+                className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </a>
             <p className="text-sm text-gray-400 font-normal leading-relaxed mb-8 max-w-sm">
               Rigorous testing followed by a seamless transition to production.
@@ -93,8 +98,8 @@ export const Footer: React.FC = () => {
                 <p>9236 XD, London</p>
                 <p className="pt-1">0 (123) 923647 7345</p>
                 <p>
-                  <a href="mailto:info@wehexa.com" className="hover:text-[#d8fa35] transition-colors">
-                    info@wehexa.com
+                  <a href="mailto:info@grabky.com" className="hover:text-[#d8fa35] transition-colors">
+                    info@grabky.com
                   </a>
                 </p>
               </div>
@@ -116,7 +121,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="font-mono text-gray-400">
-            @2026 WeHexa
+            @2026 Grabky
           </div>
         </div>
 

@@ -22,7 +22,7 @@ export const ContactCTA: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28 overflow-hidden">
+    <section id="contact" className="relative py-20 sm:py-28 overflow-hidden w-full">
       {/* Background with Sunlit Hill and Sky */}
       <div className="absolute inset-0 z-0">
         <img

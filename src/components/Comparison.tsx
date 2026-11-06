@@ -1,11 +1,12 @@
 import React from 'react';
 import { Check, X, AlertCircle } from 'lucide-react';
+import grabkyLogoWhite from '../assets/grabky-logo-white@2x.png';
 
 interface ComparisonRow {
   feature: string;
   agencies: { text: string; status: 'check' | 'cross' | 'warning' };
   freelancers: { text: string; status: 'check' | 'cross' | 'warning' };
-  wehexa: { text: string; status: 'check' | 'cross' | 'warning' };
+  grabky: { text: string; status: 'check' | 'cross' | 'warning' };
 }
 
 const tableData: ComparisonRow[] = [
@@ -13,37 +14,37 @@ const tableData: ComparisonRow[] = [
     feature: 'AI-First Logic',
     agencies: { text: 'Limited AI usage', status: 'warning' },
     freelancers: { text: 'Rarely AI-based', status: 'cross' },
-    wehexa: { text: 'Fully AI-embedded', status: 'check' },
+    grabky: { text: 'Fully AI-embedded', status: 'check' },
   },
   {
     feature: 'Development Speed',
     agencies: { text: 'Structured but slow', status: 'warning' },
     freelancers: { text: 'Inconsistent timelines', status: 'cross' },
-    wehexa: { text: 'Rapid agile cycles', status: 'check' },
+    grabky: { text: 'Rapid agile cycles', status: 'check' },
   },
   {
     feature: 'Scalable Tech Stack',
     agencies: { text: 'Legacy-heavy systems', status: 'warning' },
     freelancers: { text: 'Short-term builds', status: 'cross' },
-    wehexa: { text: 'Built for scale (Next.js/AWS)', status: 'check' },
+    grabky: { text: 'Built for scale (Next.js/AWS)', status: 'check' },
   },
   {
     feature: 'Communication',
     agencies: { text: 'Account managers only', status: 'warning' },
     freelancers: { text: 'Solo execution', status: 'cross' },
-    wehexa: { text: 'Direct Founder access', status: 'check' },
+    grabky: { text: 'Direct Founder access', status: 'check' },
   },
   {
     feature: 'System Delivery',
     agencies: { text: 'Deadline-driven releases', status: 'check' },
     freelancers: { text: 'Quality varies', status: 'warning' },
-    wehexa: { text: 'Production-ready & tested', status: 'check' },
+    grabky: { text: 'Production-ready & tested', status: 'check' },
   },
   {
     feature: 'Long-term Support',
     agencies: { text: 'Contract-based support', status: 'warning' },
     freelancers: { text: 'Limited availability', status: 'warning' },
-    wehexa: { text: 'Continuous optimization', status: 'check' },
+    grabky: { text: 'Continuous optimization', status: 'check' },
   },
 ];
 
@@ -60,7 +61,7 @@ export const Comparison: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#121316] py-20 sm:py-28 text-white border-b border-gray-800">
+    <section className="bg-[#121316] py-20 sm:py-28 text-white border-b border-gray-800 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -89,7 +90,10 @@ export const Comparison: React.FC = () => {
                   FREELANCERS
                 </th>
                 <th className="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#d8fa35]">
-                  AT WEHEXA
+                  <div className="flex items-center gap-2">
+                    <img src={grabkyLogoWhite} alt="Grabky" className="h-4 w-auto inline-block object-contain" />
+                    <span>AT GRABKY</span>
+                  </div>
                 </th>
               </tr>
             </thead>
@@ -120,11 +124,11 @@ export const Comparison: React.FC = () => {
                     </div>
                   </td>
 
-                  {/* At WeHexa */}
+                  {/* At Grabky */}
                   <td className="py-5 px-6 text-xs sm:text-sm font-medium text-white bg-white/[0.02]">
                     <div className="flex items-center gap-2">
-                      {renderStatusIcon(row.wehexa.status)}
-                      <span className="font-semibold text-[#d8fa35]">{row.wehexa.text}</span>
+                      {renderStatusIcon(row.grabky.status)}
+                      <span className="font-semibold text-[#d8fa35]">{row.grabky.text}</span>
                     </div>
                   </td>
                 </tr>

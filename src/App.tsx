@@ -17,13 +17,13 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f3f6fa] text-gray-900 font-sans selection:bg-[#d8fa35] selection:text-black">
-      {/* Centered Artboard Presentation Container */}
-      <div className="max-w-[1440px] mx-auto bg-white shadow-[0_0_50px_rgba(0,0,0,0.06)] relative overflow-hidden">
+    <div className="min-h-screen w-full bg-[#00BE80] text-gray-950 font-sans selection:bg-[#d8fa35] selection:text-black overflow-x-hidden m-0 p-0">
+      {/* Full-width Website Container - No left/right white spaces */}
+      <div className="w-full relative overflow-x-hidden">
         {/* Navigation Bar */}
         <Navbar />
 
-        {/* Hero Section */}
+        {/* Hero Section (100% Full Width) */}
         <Hero />
 
         {/* Client Logos Ribbon */}
@@ -70,4 +70,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-
