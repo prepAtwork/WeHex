@@ -65,43 +65,43 @@ export const Reviews: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#00BE80] py-20 sm:py-28 border-b border-black/10 overflow-hidden w-full">
+    <section className="bg-white py-20 sm:py-28 border-b border-gray-100 overflow-hidden w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-white/80 mb-8 font-mono">
+        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-gray-400 mb-8 font-mono">
           <span>/Reviews</span>
           <span>(06)</span>
         </div>
 
         {/* Section Headline */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-5 drop-shadow-sm">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-4">
             The proof is in the partnership.
           </h2>
 
           {/* Trustpilot Badge */}
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium bg-white/95 backdrop-blur-xs px-4 py-2 rounded-full shadow-lg border border-white/80 text-gray-800">
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700">
             <div className="w-5 h-5 bg-[#00b67a] flex items-center justify-center rounded-[3px] text-white">
               <Star className="w-3.5 h-3.5 fill-white" />
             </div>
             <span className="font-bold text-gray-900">Trustpilot</span>
-            <span className="text-gray-500">Based on <span className="underline cursor-pointer text-gray-800 font-semibold">456 reviews</span></span>
+            <span className="text-gray-500">Based on <span className="underline cursor-pointer text-gray-800">456 reviews</span></span>
           </div>
         </div>
 
         {/* Carousel Arrow Controls */}
-        <div className="flex justify-end gap-2.5 mb-6">
+        <div className="flex justify-end gap-2 mb-6">
           <button
             onClick={() => scroll('left')}
-            className="w-10 h-10 rounded-full border border-white/40 bg-white/95 flex items-center justify-center text-gray-800 hover:bg-white hover:scale-105 transition-all shadow-md"
+            className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors shadow-sm"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="w-10 h-10 rounded-full border border-white/40 bg-white/95 flex items-center justify-center text-gray-800 hover:bg-white hover:scale-105 transition-all shadow-md"
+            className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors shadow-sm"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />

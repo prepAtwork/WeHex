@@ -17,7 +17,7 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen w-full bg-[#00BE80] text-gray-950 font-sans selection:bg-[#d8fa35] selection:text-black overflow-x-hidden m-0 p-0">
+    <div className="min-h-screen w-full bg-white text-gray-950 font-sans selection:bg-[#00BE80] selection:text-white overflow-x-hidden m-0 p-0">
       {/* Full-width Website Container - No left/right white spaces */}
       <div className="w-full relative overflow-x-hidden">
         {/* Navigation Bar */}

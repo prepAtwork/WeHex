@@ -44,11 +44,11 @@ const steps: Step[] = [
 
 export const Process: React.FC = () => {
   return (
-    <section className="bg-[#00BE80] py-20 sm:py-28 border-b border-black/10 w-full">
+    <section className="bg-white py-20 sm:py-28 border-b border-gray-100 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-white/80 mb-8 font-mono">
+        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-gray-400 mb-8 font-mono">
           <span>/Our Process</span>
           <span>(03)</span>
         </div>
@@ -58,7 +58,7 @@ export const Process: React.FC = () => {
           
           {/* Left: Developer Photo Card */}
           <div className="lg:col-span-6">
-            <div className="rounded-[32px] overflow-hidden shadow-2xl border border-white/30 group">
+            <div className="rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100 group">
               <img
                 src={processDevImg}
                 alt="Developer working on architecture and code"
@@ -70,33 +70,33 @@ export const Process: React.FC = () => {
           {/* Right: Headline and Connected Step Timeline */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-10 drop-shadow-sm">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-10">
               From initial spark to scalable reality.
             </h2>
 
             {/* Steps Container */}
             <div className="relative flex flex-col space-y-7">
               {/* Vertical connecting line */}
-              <div className="absolute top-4 bottom-6 left-4 w-[2px] bg-white/30" />
+              <div className="absolute top-4 bottom-6 left-4 w-[2px] bg-[#00BE80]/30" />
 
               {steps.map((step, index) => (
                 <div key={index} className="relative flex items-start gap-5 group">
-                  {/* Step Cyan/Lime Number Bubble */}
-                  <div className="relative z-10 w-8 h-8 rounded-full bg-[#d8fa35] text-black flex items-center justify-center font-bold text-xs shadow-md flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {/* Step Grabky Green Number Bubble */}
+                  <div className="relative z-10 w-8 h-8 rounded-full bg-[#00BE80] text-black flex items-center justify-center font-bold text-xs shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform">
                     {step.num}
                   </div>
 
                   {/* Step Content */}
                   <div className="flex-1 pt-0.5">
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="text-white">
+                      <div className="text-gray-800">
                         {step.icon}
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-white">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900">
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed">
                       {step.desc}
                     </p>
                   </div>

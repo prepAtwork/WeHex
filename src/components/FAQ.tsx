@@ -68,19 +68,19 @@ export const FAQ: React.FC = () => {
       <div
         key={faq.id}
         onClick={() => toggle(faq.id)}
-        className="bg-white/95 hover:bg-white border border-white/80 rounded-2xl p-5 sm:p-6 cursor-pointer transition-all mb-4 shadow-lg hover:shadow-xl"
+        className="bg-[#f8f9fa] hover:bg-[#f3f4f6] border border-gray-100 rounded-2xl p-5 sm:p-6 cursor-pointer transition-all mb-4"
       >
         <div className="flex items-center justify-between gap-4">
           <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug">
             {faq.question}
           </h3>
-          <div className="w-7 h-7 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-800 flex-shrink-0 transition-transform">
+          <div className="w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-700 flex-shrink-0 transition-transform">
             {isOpen ? <X className="w-4 h-4 stroke-[2]" /> : <Plus className="w-4 h-4 stroke-[2]" />}
           </div>
         </div>
 
         {isOpen && (
-          <div className="mt-4 pt-4 border-t border-gray-200/80 animate-in fade-in duration-200">
+          <div className="mt-4 pt-4 border-t border-gray-200/60 animate-in fade-in duration-200">
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
               {faq.answer}
             </p>
@@ -91,17 +91,17 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#00BE80] py-20 sm:py-28 border-b border-black/10 w-full">
+    <section className="bg-white py-20 sm:py-28 border-b border-gray-100 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-white/80 mb-8 font-mono">
+        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-gray-400 mb-8 font-mono">
           <span>/Faqs</span>
           <span>(08)</span>
         </div>
 
         {/* Section Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-12 sm:mb-16 drop-shadow-sm">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-12 sm:mb-16">
           Common Questions
         </h2>
 
@@ -113,7 +113,7 @@ export const FAQ: React.FC = () => {
 
         {/* Bottom CTA Helper */}
         <div className="mt-12 text-center flex flex-col items-center justify-center">
-          <p className="text-xs sm:text-sm text-white/90 font-medium mb-4 drop-shadow-sm">
+          <p className="text-xs sm:text-sm text-gray-400 font-medium mb-4">
             Let's talk through them-no pressure, just clarity.
           </p>
 
@@ -122,7 +122,7 @@ export const FAQ: React.FC = () => {
               href="https://wa.me/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-800 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-colors border border-white/80 shadow-md"
+              className="inline-flex items-center gap-2 bg-[#f4f5f7] hover:bg-gray-200 text-gray-800 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-colors border border-gray-200"
             >
               <div className="w-4 h-4 rounded-full bg-[#25d366] flex items-center justify-center text-white">
                 <MessageCircle className="w-2.5 h-2.5 fill-white" />
@@ -132,7 +132,7 @@ export const FAQ: React.FC = () => {
 
             <a
               href="#contact"
-              className="text-xs sm:text-sm font-bold text-white underline hover:text-[#d8fa35] transition-colors drop-shadow-sm"
+              className="text-xs sm:text-sm font-bold text-gray-900 underline hover:text-[#00BE80] transition-colors"
             >
               Schedule a Call
             </a>

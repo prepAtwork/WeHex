@@ -43,7 +43,7 @@ export const ContactCTA: React.FC = () => {
               
               {submitted ? (
                 <div className="py-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#d8fa35] flex items-center justify-center mx-auto mb-4 text-black">
+                  <div className="w-16 h-16 rounded-full bg-[#00BE80] flex items-center justify-center mx-auto mb-4 text-black">
                     <ArrowUpRight className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Request Received!</h3>
@@ -146,7 +146,7 @@ export const ContactCTA: React.FC = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full group flex items-center justify-between bg-[#d8fa35] hover:bg-[#c6ea24] text-black font-bold pl-6 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(216,250,53,0.35)] transition-all hover:scale-[1.01]"
+                      className="w-full group flex items-center justify-between bg-[#00BE80] hover:bg-[#00a872] text-black font-bold pl-6 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(0,190,128,0.35)] transition-all hover:scale-[1.01]"
                     >
                       <span className="text-[15px]">Schedule a Strategy Call</span>
                       <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">

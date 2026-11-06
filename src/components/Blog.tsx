@@ -34,24 +34,24 @@ const posts: BlogPost[] = [
 
 export const Blog: React.FC = () => {
   return (
-    <section id="blog" className="bg-[#00BE80] py-20 sm:py-28 border-b border-black/10 w-full">
+    <section id="blog" className="bg-[#fcfcfc] py-20 sm:py-28 border-b border-gray-100 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-white/80 mb-8 font-mono">
+        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-gray-400 mb-8 font-mono">
           <span>/Newest Blog</span>
           <span>(09)</span>
         </div>
 
         {/* Top Header: Headline on Left, Button on Right */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] max-w-xl drop-shadow-sm">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] max-w-xl">
             Strategic insights on AI, Tech, and Growth.
           </h2>
 
           <a
             href="#blog"
-            className="group inline-flex items-center gap-3 bg-[#d8fa35] hover:bg-[#c6ea24] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105 shadow-md"
+            className="group inline-flex items-center gap-3 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105 shadow-md"
           >
             <span>Explore our Insights</span>
             <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">
@@ -65,10 +65,10 @@ export const Blog: React.FC = () => {
           {posts.map((post) => (
             <article
               key={post.id}
-              className="group flex flex-col bg-white rounded-[28px] p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all cursor-pointer border border-white/80 hover:scale-[1.01]"
+              className="group flex flex-col cursor-pointer"
             >
               {/* Card Image */}
-              <div className="relative rounded-[20px] overflow-hidden bg-gray-100 aspect-[16/11] mb-5 shadow-xs border border-gray-100">
+              <div className="relative rounded-[28px] overflow-hidden bg-gray-100 aspect-[16/11] mb-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -81,7 +81,7 @@ export const Blog: React.FC = () => {
                 {post.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-0.5 rounded-full text-[11px] font-medium bg-gray-100 text-gray-700 border border-gray-200/60"
+                    className="px-3 py-0.5 rounded-full text-[11px] font-medium bg-white text-gray-600 border border-gray-200/80 shadow-xs"
                   >
                     {tag}
                   </span>

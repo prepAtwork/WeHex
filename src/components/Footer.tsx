@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
 
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 bg-[#d8fa35] hover:bg-[#c6ea24] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105"
+              className="group inline-flex items-center gap-3 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105"
             >
               <span>Schedule a Strategy Call</span>
               <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">
@@ -43,22 +43,22 @@ export const Footer: React.FC = () => {
                 Pages
               </h4>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
-                <a href="#" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Home
                 </a>
-                <a href="#portfolio" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#portfolio" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Portfolio
                 </a>
-                <a href="#about" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#about" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   About
                 </a>
-                <a href="#services" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#services" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Services
                 </a>
-                <a href="#blog" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#blog" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Blog
                 </a>
-                <a href="#contact" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                <a href="#contact" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Contact
                 </a>
               </div>
@@ -71,17 +71,17 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#d8fa35] transition-colors">
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                     Linkedin
                   </a>
                 </li>
@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
                 <p>9236 XD, London</p>
                 <p className="pt-1">0 (123) 923647 7345</p>
                 <p>
-                  <a href="mailto:info@grabky.com" className="hover:text-[#d8fa35] transition-colors">
+                  <a href="mailto:info@grabky.com" className="hover:text-[#00BE80] transition-colors">
                     info@grabky.com
                   </a>
                 </p>

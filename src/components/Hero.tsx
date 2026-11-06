@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
           {/* Primary Button */}
           <a
             href="#contact"
-            className="group flex items-center gap-3 bg-[#d8fa35] hover:bg-[#c6ea24] text-black text-[15px] font-bold pl-5 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(216,250,53,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="group flex items-center gap-3 bg-[#00BE80] hover:bg-[#00a872] text-black text-[15px] font-bold pl-5 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(0,190,128,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Book a Call</span>
             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">

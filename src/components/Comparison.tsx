@@ -52,7 +52,7 @@ export const Comparison: React.FC = () => {
   const renderStatusIcon = (status: 'check' | 'cross' | 'warning') => {
     switch (status) {
       case 'check':
-        return <Check className="w-4 h-4 text-[#d8fa35] stroke-[2.5]" />;
+        return <Check className="w-4 h-4 text-[#00BE80] stroke-[2.5]" />;
       case 'cross':
         return <X className="w-4 h-4 text-red-400 stroke-[2.5]" />;
       case 'warning':
@@ -89,7 +89,7 @@ export const Comparison: React.FC = () => {
                 <th className="py-5 px-6 text-xs font-bold uppercase tracking-wider text-gray-400">
                   FREELANCERS
                 </th>
-                <th className="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#d8fa35]">
+                <th className="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#00BE80]">
                   <div className="flex items-center gap-2">
                     <img src={grabkyLogoWhite} alt="Grabky" className="h-4 w-auto inline-block object-contain" />
                     <span>AT GRABKY</span>
@@ -128,7 +128,7 @@ export const Comparison: React.FC = () => {
                   <td className="py-5 px-6 text-xs sm:text-sm font-medium text-white bg-white/[0.02]">
                     <div className="flex items-center gap-2">
                       {renderStatusIcon(row.grabky.status)}
-                      <span className="font-semibold text-[#d8fa35]">{row.grabky.text}</span>
+                      <span className="font-semibold text-[#00BE80]">{row.grabky.text}</span>
                     </div>
                   </td>
                 </tr>

@@ -90,7 +90,7 @@ export const Portfolio: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                   activeCategory === cat
-                    ? 'bg-[#d8fa35] text-black shadow-md'
+                    ? 'bg-[#00BE80] text-black shadow-md'
                     : 'bg-[#1e2025] text-gray-300 hover:text-white hover:bg-[#282a32] border border-gray-800'
                 }`}
               >
@@ -102,7 +102,7 @@ export const Portfolio: React.FC = () => {
           {/* Schedule Strategy Call CTA */}
           <a
             href="#contact"
-            className="group inline-flex items-center gap-3 bg-[#d8fa35] hover:bg-[#c6ea24] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105"
+            className="group inline-flex items-center gap-3 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold pl-4 pr-1.5 py-1.5 rounded-full transition-all hover:scale-105"
           >
             <span>Schedule a Strategy Call</span>
             <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">
@@ -129,7 +129,7 @@ export const Portfolio: React.FC = () => {
               </div>
 
               {/* Title & Desc */}
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2 group-hover:text-[#d8fa35] transition-colors">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2 group-hover:text-[#00BE80] transition-colors">
                 {project.title}
               </h3>
               <p className="text-sm text-gray-400 font-normal mb-4 leading-relaxed">
@@ -172,7 +172,7 @@ export const Portfolio: React.FC = () => {
               {selectedProject.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#252730] text-[#d8fa35]"
+                  className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#252730] text-[#00BE80]"
                 >
                   {tag}
                 </span>
