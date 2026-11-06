@@ -110,6 +110,7 @@ export const ContactCTA: React.FC = () => {
                         <option value="Web & Software Development">Web & Software Development</option>
                         <option value="Design & Branding">Design & Branding</option>
                         <option value="Maintenance & Consulting">Maintenance & Consulting</option>
+                        <option value="Staffing">Staffing</option>
                       </select>
                     </div>
                     <div>

@@ -1,37 +1,48 @@
 import React, { useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import serviceWebDevImg from '../assets/service-web-dev.jpg';
+import serviceAiImg from '../assets/service-ai-automation.jpg';
+import serviceDesignImg from '../assets/service-design-branding.jpg';
+import serviceMaintImg from '../assets/service-maintenance.jpg';
+import serviceStaffingImg from '../assets/service-staffing.jpg';
 
 interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  iconType: string;
+  image: string;
 }
 
 const servicesData: ServiceItem[] = [
   {
     id: 'web-software',
     title: 'Web & Software Development',
-    description: 'Scalable cloud architectures, bespoke enterprise web applications, and intuitive interfaces built on modern tech stacks.',
-    iconType: 'code',
+    description: 'Scalable cloud architectures, bespoke enterprise web applications, and modern high-performance platforms.',
+    image: serviceWebDevImg,
   },
   {
     id: 'ai-automations',
     title: 'AI & Automations',
     description: 'Autonomous workflows, LLM agents, and automated data pipelines designed to eliminate friction and maximize operational efficiency.',
-    iconType: 'bot',
+    image: serviceAiImg,
   },
   {
     id: 'design-branding',
     title: 'Design & Branding',
-    description: 'Our team of designers, developers, and thinkers driven by one purpose',
-    iconType: 'pen-tool',
+    description: 'Our team of designers, developers, and thinkers driven by one purpose to craft compelling digital experiences.',
+    image: serviceDesignImg,
   },
   {
     id: 'maintenance-consulting',
     title: 'Maintenance & Consulting',
     description: 'Continuous performance optimization, round-the-clock infrastructure monitoring, and strategic technical consulting.',
-    iconType: 'cpu',
+    image: serviceMaintImg,
+  },
+  {
+    id: 'staffing',
+    title: 'Staffing',
+    description: 'Elite on-demand software engineers, AI researchers, and technical talent embedded directly into your agile team.',
+    image: serviceStaffingImg,
   },
 ];
 
@@ -53,8 +64,8 @@ export const Services: React.FC = () => {
           AI-powered solutions for tomorrow's world.
         </h2>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 5 Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 sm:gap-6">
           {servicesData.map((service) => {
             const isActive = activeId === service.id;
 
@@ -62,7 +73,7 @@ export const Services: React.FC = () => {
               <div
                 key={service.id}
                 onClick={() => setActiveId(service.id)}
-                className={`group cursor-pointer relative rounded-[28px] p-7 flex flex-col justify-between transition-all duration-300 min-h-[380px] ${
+                className={`group cursor-pointer relative rounded-[28px] p-6 flex flex-col justify-between transition-all duration-300 min-h-[430px] ${
                   isActive
                     ? 'bg-[#141416] text-white shadow-2xl scale-[1.02] border border-gray-800'
                     : 'bg-[#f8f9fa] text-gray-900 border border-gray-100 shadow-sm hover:shadow-xl hover:scale-[1.01]'
@@ -71,55 +82,39 @@ export const Services: React.FC = () => {
                 {/* Card Top: Title & Description */}
                 <div>
                   <h3
-                    className={`text-xl sm:text-2xl font-bold tracking-tight mb-3 leading-snug ${
+                    className={`text-lg sm:text-xl font-bold tracking-tight mb-2.5 leading-snug ${
                       isActive ? 'text-white' : 'text-gray-900'
                     }`}
                   >
                     {service.title}
                   </h3>
+                  <p
+                    className={`text-xs leading-relaxed font-normal min-h-[38px] line-clamp-2 ${
+                      isActive ? 'text-gray-300' : 'text-gray-500'
+                    }`}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Card Center: Visual Service Image */}
+                <div
+                  className={`my-4 w-full h-36 sm:h-40 rounded-2xl overflow-hidden relative border transition-all ${
+                    isActive ? 'border-white/10 shadow-lg' : 'border-gray-200/60 shadow-xs'
+                  }`}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   {isActive && (
-                    <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-normal">
-                      {service.description}
-                    </p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141416]/30 via-transparent to-transparent pointer-events-none" />
                   )}
                 </div>
 
-                {/* Card Center: Visual Vector Illustration for Active Card */}
-                {isActive && (
-                  <div className="my-auto py-6 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-2xl bg-[#1c1c20] border border-gray-800/80 flex items-center justify-center shadow-inner">
-                      {/* Vector Pen Tool Graphic */}
-                      <svg
-                        className="w-16 h-16 text-white stroke-[1.25]"
-                        viewBox="0 0 64 64"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 44C16 32 30 20 52 14"
-                          stroke="currentColor"
-                          strokeDasharray="2 2"
-                        />
-                        <rect x="10" y="42" width="6" height="6" fill="#141416" stroke="currentColor" />
-                        <rect x="50" y="12" width="6" height="6" fill="#141416" stroke="currentColor" />
-                        <path
-                          d="M32 24L42 34L28 48L18 48L18 38L32 24Z"
-                          stroke="currentColor"
-                          strokeWidth="1.75"
-                          fill="#18181b"
-                        />
-                        <circle cx="28" cy="38" r="2.5" fill="currentColor" />
-                        <path d="M18 48L24 42" stroke="currentColor" strokeWidth="1.5" />
-                        <line x1="22" y1="20" x2="42" y2="40" stroke="currentColor" strokeWidth="1" />
-                        <circle cx="22" cy="20" r="2" fill="#00BE80" />
-                        <circle cx="42" cy="40" r="2" fill="#00BE80" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
-
                 {/* Card Bottom: Action Button */}
-                <div className={`mt-auto flex ${isActive ? 'justify-end' : 'justify-start'} pt-6`}>
+                <div className={`mt-auto flex ${isActive ? 'justify-end' : 'justify-start'} pt-2`}>
                   {isActive ? (
                     <div className="w-10 h-10 rounded-full bg-[#00BE80] flex items-center justify-center text-black shadow-md group-hover:scale-110 transition-transform">
                       <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
