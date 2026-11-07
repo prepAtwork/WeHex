@@ -15,12 +15,12 @@ export const Footer: React.FC = () => {
             <a href="#" className="flex items-center gap-2 mb-4 group">
               <img
                 src={grabkyLogoWhite}
-                alt="Grabky"
+                alt="Grabky Technologies"
                 className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </a>
-            <p className="text-sm text-gray-400 font-normal leading-relaxed mb-8 max-w-sm">
-              Rigorous testing followed by a seamless transition to production.
+            <p className="text-sm text-gray-400 font-normal leading-[1.65] mb-8 max-w-sm">
+              From concept to launch, we design and develop digital products that solve real problems, create meaningful experiences, and help businesses grow.
             </p>
 
             <a
@@ -50,13 +50,13 @@ export const Footer: React.FC = () => {
                   Portfolio
                 </a>
                 <a href="#about" className="text-gray-300 hover:text-[#00BE80] transition-colors">
-                  About
+                  About Us
                 </a>
                 <a href="#services" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Services
                 </a>
-                <a href="#blog" className="text-gray-300 hover:text-[#00BE80] transition-colors">
-                  Blog
+                <a href="#services" className="text-gray-300 hover:text-[#00BE80] transition-colors">
+                  Staffing
                 </a>
                 <a href="#contact" className="text-gray-300 hover:text-[#00BE80] transition-colors">
                   Contact
@@ -71,8 +71,8 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
-                    Facebook
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
+                    LinkedIn
                   </a>
                 </li>
                 <li>
@@ -81,8 +81,8 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
-                    Linkedin
+                  <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#00BE80] transition-colors">
+                    Twitter / X
                   </a>
                 </li>
               </ul>
@@ -94,9 +94,12 @@ export const Footer: React.FC = () => {
                 Contact
               </h4>
               <div className="space-y-2 text-sm text-gray-300">
-                <p>Wolew 1291</p>
-                <p>9236 XD, London</p>
-                <p className="pt-1">0 (123) 923647 7345</p>
+                <p className="font-semibold text-white">Grabky Technologies</p>
+                <p>
+                  <a href="tel:+919399456476" className="hover:text-[#00BE80] transition-colors">
+                    +91 93994 56476
+                  </a>
+                </p>
                 <p>
                   <a href="mailto:info@grabky.com" className="hover:text-[#00BE80] transition-colors">
                     info@grabky.com
@@ -113,15 +116,15 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-gray-300 transition-colors">
-              Cookies Policy
+              Privacy Policy
             </a>
             <a href="#" className="hover:text-gray-300 transition-colors">
-              Privacy Policy
+              Terms of Service
             </a>
           </div>
 
           <div className="font-mono text-gray-400">
-            @2026 Grabky
+            @2026 Grabky. All rights reserved.
           </div>
         </div>
 
@@ -129,4 +132,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-

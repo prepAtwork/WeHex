@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, X, MessageCircle } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 
 interface FAQItem {
   id: string;
@@ -9,53 +9,52 @@ interface FAQItem {
 
 const leftFaqs: FAQItem[] = [
   {
-    id: 'l1',
-    question: 'How long for a custom software project?',
-    answer: 'Typical MVPs take 4 to 8 weeks, while full enterprise software platforms generally require 3 to 6 months depending on system scope and integration requirements.',
+    id: 'f1',
+    question: 'What services does Grabky provide?',
+    answer: 'We offer end-to-end digital product services, including mobile app development, web development, product design (UI/UX), dedicated staffing, digital marketing, and ongoing maintenance & consulting.',
   },
   {
-    id: 'l2',
-    question: 'Will I access the development team?',
-    answer: 'Yes! You have direct access to our technical leads and engineers via dedicated Slack or WhatsApp channels with no bureaucratic intermediaries.',
+    id: 'f2',
+    question: 'How long does a typical project take?',
+    answer: 'Project timelines vary depending on scope and complexity. A standard web or mobile application typically takes between 6 to 12 weeks from discovery to launch, while larger platforms may take longer.',
   },
   {
-    id: 'l3',
-    question: 'How do you manage IP and data ownership?',
-    answer: 'You retain 100% ownership of all code, custom trained models, data pipelines, and design assets from day one upon milestone completion.',
+    id: 'f3',
+    question: 'How does communication work during the project?',
+    answer: 'You will have direct communication with your dedicated team through Slack, WhatsApp, or scheduled weekly video calls. We believe in complete transparency and regular progress updates.',
   },
   {
-    id: 'l4',
-    question: 'Do you offer MVP or phased development?',
-    answer: 'Absolutely. We love launching fast, robust MVPs first so you can test real market demand before committing to heavy long-term architectural expansions.',
+    id: 'f4',
+    question: 'Can you help with existing projects or redesigns?',
+    answer: 'Yes, we frequently work with businesses to redesign outdated products, optimize existing codebases, improve UI/UX, or take over maintenance and feature development for live platforms.',
   },
 ];
 
 const rightFaqs: FAQItem[] = [
   {
-    id: 'r1',
-    question: 'How do you secure our sensitive data?',
-    answer: 'We employ enterprise-grade encryption at rest and in transit, private VPC deployments, and zero-data-retention agreements for all proprietary AI models.',
+    id: 'f5',
+    question: 'What is your pricing structure?',
+    answer: 'We offer flexible pricing models depending on your project needs, including fixed-price contracts for well-defined scopes and dedicated team or retainer models for ongoing work.',
   },
   {
-    id: 'r2',
-    question: 'Can you integrate AI into our legacy systems?',
-    answer: 'Yes. We specialize in building "intelligent bridges" that add modern AI capabilities to your current tech stack without requiring a total rebuild.',
+    id: 'f6',
+    question: 'Do you provide post-launch support and maintenance?',
+    answer: 'Yes, we offer ongoing maintenance and support packages to ensure your digital product stays secure, up-to-date, and performing optimally as your user base grows.',
   },
   {
-    id: 'r3',
-    question: 'Do you offer maintenance after launch?',
-    answer: 'Yes. We offer continuous SLA-backed maintenance, automated error tracking, load scaling, and ongoing AI agent performance tuning.',
+    id: 'f7',
+    question: 'How do we get started?',
+    answer: "Simply schedule a discovery call with our team or fill out our contact form. We'll discuss your goals, requirements, and provide a clear proposal with timeline and pricing.",
   },
   {
-    id: 'r4',
-    question: 'What technologies do you specialize in?',
-    answer: 'Our core stack centers around Next.js, React, TypeScript, Python, FastAPI, Supabase/PostgreSQL, AWS, and cutting-edge autonomous AI frameworks.',
+    id: 'f8',
+    question: 'Who owns the intellectual property and code?',
+    answer: 'You do. Upon project completion and final payment, 100% of the intellectual property, design assets, and source code belong entirely to you.',
   },
 ];
 
 export const FAQ: React.FC = () => {
-  // r2 is open by default as shown in the reference design!
-  const [openId, setOpenId] = useState<string>('r2');
+  const [openId, setOpenId] = useState<string>('f1');
 
   const toggle = (id: string) => {
     setOpenId(openId === id ? '' : id);
@@ -68,20 +67,28 @@ export const FAQ: React.FC = () => {
       <div
         key={faq.id}
         onClick={() => toggle(faq.id)}
-        className="bg-[#f8f9fa] hover:bg-[#f3f4f6] border border-gray-100 rounded-2xl p-5 sm:p-6 cursor-pointer transition-all mb-4"
+        className={`border rounded-2xl p-5 sm:p-6 cursor-pointer transition-all mb-4 ${
+          isOpen 
+            ? 'bg-white border-[#00BE80]/40 shadow-md ring-1 ring-[#00BE80]/20' 
+            : 'bg-[#f8f9fa] hover:bg-[#f3f4f6] border-gray-100'
+        }`}
       >
         <div className="flex items-center justify-between gap-4">
-          <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug">
+          <h3 className={`text-sm sm:text-base font-bold leading-[1.4] transition-colors ${
+            isOpen ? 'text-[#00a872]' : 'text-gray-900'
+          }`}>
             {faq.question}
           </h3>
-          <div className="w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-700 flex-shrink-0 transition-transform">
-            {isOpen ? <X className="w-4 h-4 stroke-[2]" /> : <Plus className="w-4 h-4 stroke-[2]" />}
+          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-transform ${
+            isOpen ? 'bg-[#00BE80] text-black rotate-90' : 'bg-white border border-gray-200 text-gray-700'
+          }`}>
+            {isOpen ? <X className="w-4 h-4 stroke-[2.5]" /> : <Plus className="w-4 h-4 stroke-[2]" />}
           </div>
         </div>
 
         {isOpen && (
-          <div className="mt-4 pt-4 border-t border-gray-200/60 animate-in fade-in duration-200">
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+          <div className="mt-4 pt-4 border-t border-gray-100 animate-in fade-in duration-200">
+            <p className="text-xs sm:text-sm text-gray-600 leading-[1.7] font-normal">
               {faq.answer}
             </p>
           </div>
@@ -96,13 +103,16 @@ export const FAQ: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wide text-gray-400 mb-8 font-mono">
-          <span>/Faqs</span>
+          <span>/FAQs</span>
           <span>(08)</span>
         </div>
 
-        {/* Section Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-12 sm:mb-16">
-          Common Questions
+        {/* Section Headline with improved line spacing */}
+        <h2 
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight mb-12 sm:mb-16"
+          style={{ lineHeight: 1.36 }}
+        >
+          Got questions? We've got answers.
         </h2>
 
         {/* 2-Column FAQs Grid */}
@@ -111,36 +121,7 @@ export const FAQ: React.FC = () => {
           <div>{rightFaqs.map(renderCard)}</div>
         </div>
 
-        {/* Bottom CTA Helper */}
-        <div className="mt-12 text-center flex flex-col items-center justify-center">
-          <p className="text-xs sm:text-sm text-gray-400 font-medium mb-4">
-            Let's talk through them-no pressure, just clarity.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://wa.me/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#f4f5f7] hover:bg-gray-200 text-gray-800 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-colors border border-gray-200"
-            >
-              <div className="w-4 h-4 rounded-full bg-[#25d366] flex items-center justify-center text-white">
-                <MessageCircle className="w-2.5 h-2.5 fill-white" />
-              </div>
-              <span>Quick Chat</span>
-            </a>
-
-            <a
-              href="#contact"
-              className="text-xs sm:text-sm font-bold text-gray-900 underline hover:text-[#00BE80] transition-colors"
-            >
-              Schedule a Call
-            </a>
-          </div>
-        </div>
-
       </div>
     </section>
   );
 };
-

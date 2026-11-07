@@ -10,7 +10,6 @@ import { TechStack } from './components/TechStack';
 import { Reviews } from './components/Reviews';
 import { Comparison } from './components/Comparison';
 import { FAQ } from './components/FAQ';
-import { Blog } from './components/Blog';
 import { MarqueeBanner } from './components/MarqueeBanner';
 import { ContactCTA } from './components/ContactCTA';
 import { Footer } from './components/Footer';
@@ -52,9 +51,6 @@ export const App: React.FC = () => {
 
         {/* Section 08: Common Questions / FAQ */}
         <FAQ />
-
-        {/* Section 09: Strategic Insights / Blog */}
-        <Blog />
 
         {/* Gigantic Display Marquee Banner */}
         <MarqueeBanner />

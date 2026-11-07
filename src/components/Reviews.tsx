@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import t1Head from '../assets/testimonial-1-head.jpg';
-import t2Head from '../assets/testimonial-2-head.jpg';
-import t3Head from '../assets/testimonial-3-head.jpg';
-import t4Head from '../assets/testimonial-4-head.jpg';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import ankitInvesto from '../assets/ankit_,_investo.avif';
+import rajJatavZinikart from '../assets/raj_jatav__zinikart.avif';
+import vytlHealth from '../assets/vytl_health.avif';
+import happierMeditation from '../assets/happier_meditation.avif';
+import shortfilmshow from '../assets/shortfilmshow.avif';
+import daveBenz from '../assets/dave_benz.avif';
 
 interface Review {
   id: string;
@@ -17,40 +19,58 @@ interface Review {
 
 const reviews: Review[] = [
   {
-    id: 'sofia',
-    name: 'Sofia',
-    role: 'Product Manager @ Innovatech',
-    company: 'NeuroLink',
-    quote: 'The team at Grabky exceeded my expectations with their commitment and attention to detail throughout the project.',
-    image: t1Head,
-    bgColor: '#f7c5cc',
+    id: 'ankit',
+    name: 'Ankit Raj Singh',
+    role: 'Co-Founder & CEO',
+    company: 'Investo',
+    quote: 'Grabky Team understood our vision from day one and helped us turn complex ideas into a clean, intuitive product. Their team was proactive, detail-oriented, and consistently delivered beyond expectations.',
+    image: ankitInvesto,
+    bgColor: '#dbeafe',
   },
   {
-    id: 'leo',
-    name: 'Leo',
-    role: 'CEO @ NextGen Solutions',
-    company: 'NeuroLink',
-    quote: 'Our collaboration with Grabky resulted in a product that not only met our needs but also delighted our users.',
-    image: t2Head,
-    bgColor: '#dfc2b6',
+    id: 'raj',
+    name: 'Raj Jatav',
+    role: 'Founder & CEO',
+    company: 'ZiniKart',
+    quote: 'What stood out most was their ability to move fast without compromising quality. From product planning to execution, Grabky Team felt like an extension of our own team.',
+    image: rajJatavZinikart,
+    bgColor: '#dcfce7',
   },
   {
-    id: 'jamal',
-    name: 'Jamal',
-    role: 'Lead Developer @ TechFusion',
-    company: 'NeuroLink',
-    quote: 'Working with Grabky was a game changer; their innovative approach streamlined our workflow significantly.',
-    image: t3Head,
-    bgColor: '#b5a5db',
+    id: 'ben',
+    name: 'Ben Harper',
+    role: 'Product Lead',
+    company: 'VYTL Health',
+    quote: 'We needed a platform that was reliable, scalable, and easy for patients to use. The Grabky Team delivered exactly that while maintaining clear communication throughout the project.',
+    image: vytlHealth,
+    bgColor: '#fef3c7',
   },
   {
-    id: 'clara',
-    name: 'Clara',
-    role: 'UX Designer @ OrbitX',
-    company: 'NeuroLink',
-    quote: 'From concept to execution, their expertise and communication made a complex project feel completely effortless.',
-    image: t4Head,
-    bgColor: '#a7cde6',
+    id: 'michael',
+    name: 'Michael Reed',
+    role: 'Founder',
+    company: 'Happier Meditation',
+    quote: 'The team brought a thoughtful approach to both design and development. They helped simplify the user journey and created an experience that aligned perfectly with our brand.',
+    image: happierMeditation,
+    bgColor: '#f3e8ff',
+  },
+  {
+    id: 'david',
+    name: 'David Miller',
+    role: 'Executive Producer',
+    company: 'The Short Film Show',
+    quote: 'Working with Grabky Team was refreshingly straightforward. They understood our requirements quickly, offered valuable suggestions, and delivered a polished product on schedule.',
+    image: shortfilmshow,
+    bgColor: '#ffedd5',
+  },
+  {
+    id: 'dave',
+    name: 'Dave Benz',
+    role: 'CMO',
+    company: 'Tixscape',
+    quote: 'Grabky Team delivered a high-quality mobile application with strong attention to performance and detail. Communication was clear throughout the project, and the final product met all our expectations.',
+    image: daveBenz,
+    bgColor: '#e0e7ff',
   },
 ];
 
@@ -75,37 +95,33 @@ export const Reviews: React.FC = () => {
         </div>
 
         {/* Section Headline */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-4">
-            The proof is in the partnership.
-          </h2>
-
-          {/* Trustpilot Badge */}
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700">
-            <div className="w-5 h-5 bg-[#00b67a] flex items-center justify-center rounded-[3px] text-white">
-              <Star className="w-3.5 h-3.5 fill-white" />
-            </div>
-            <span className="font-bold text-gray-900">Trustpilot</span>
-            <span className="text-gray-500">Based on <span className="underline cursor-pointer text-gray-800">456 reviews</span></span>
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12 sm:mb-16">
+          <div>
+            <h2 
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight"
+              style={{ lineHeight: 1.36 }}
+            >
+              Good work speaks. Happy clients say more.
+            </h2>
           </div>
-        </div>
 
-        {/* Carousel Arrow Controls */}
-        <div className="flex justify-end gap-2 mb-6">
-          <button
-            onClick={() => scroll('left')}
-            className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors shadow-sm"
-            aria-label="Previous review"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => scroll('right')}
-            className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors shadow-sm"
-            aria-label="Next review"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          {/* Carousel Arrow Controls */}
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => scroll('left')}
+              className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-colors shadow-sm"
+              aria-label="Previous review"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-colors shadow-sm"
+              aria-label="Next review"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Testimonials Cards Row */}
@@ -116,11 +132,11 @@ export const Reviews: React.FC = () => {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="flex-shrink-0 w-[300px] sm:w-[350px] lg:w-[380px] h-[520px] rounded-[32px] overflow-hidden relative shadow-[0_8px_30px_rgba(0,0,0,0.08)] snap-start group flex flex-col justify-between"
+              className="flex-shrink-0 w-[300px] sm:w-[360px] lg:w-[380px] h-[520px] rounded-[32px] overflow-hidden relative shadow-[0_8px_30px_rgba(0,0,0,0.08)] snap-start group flex flex-col justify-between"
               style={{ backgroundColor: review.bgColor }}
             >
               {/* Person Headshot */}
-              <div className="w-full h-[62%] overflow-hidden">
+              <div className="w-full h-[60%] overflow-hidden">
                 <img
                   src={review.image}
                   alt={review.name}
@@ -129,33 +145,29 @@ export const Reviews: React.FC = () => {
               </div>
 
               {/* Bottom Frosted Dark Overlay with Review Info */}
-              <div className="h-[46%] -mt-10 p-6 sm:p-7 bg-[#1c1c20]/95 backdrop-blur-md rounded-b-[32px] text-white flex flex-col justify-between shadow-2xl border-t border-white/10">
+              <div className="h-[48%] -mt-10 p-6 sm:p-7 bg-[#1c1c20]/95 backdrop-blur-md rounded-b-[32px] text-white flex flex-col justify-between shadow-2xl border-t border-white/10">
                 <div>
-                  {/* NeuroLink Logo Badge */}
+                  {/* Company Badge */}
                   <div className="flex items-center gap-2 mb-2.5">
-                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="9" />
-                      <path d="M12 3a9 9 0 0 1 9 9" />
-                      <path d="M12 7a5 5 0 0 1 5 5" />
-                    </svg>
-                    <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
+                    <Quote className="w-3.5 h-3.5 text-[#00BE80] rotate-180" />
+                    <span className="text-xs font-semibold tracking-wider text-[#00BE80] uppercase">
                       {review.company}
                     </span>
                   </div>
 
-                  {/* Quote Text */}
-                  <p className="text-xs sm:text-sm text-gray-200 font-normal leading-relaxed line-clamp-3">
-                    {review.quote}
+                  {/* Quote Text with improved line spacing */}
+                  <p className="text-xs sm:text-sm text-gray-200 font-normal leading-[1.7] line-clamp-4">
+                    "{review.quote}"
                   </p>
                 </div>
 
                 {/* Author & Role */}
-                <div className="pt-2">
+                <div className="pt-2 border-t border-white/10">
                   <h4 className="text-base font-bold text-white">
                     {review.name}
                   </h4>
                   <p className="text-xs text-gray-400">
-                    {review.role}
+                    {review.role}, {review.company}
                   </p>
                 </div>
               </div>

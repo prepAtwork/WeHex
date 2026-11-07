@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import grabkyLogo from '../assets/grabky-logo@2x.png';
 
 interface NavbarProps {
@@ -18,35 +18,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
           <a href="#" className="flex items-center gap-2 group">
             <img
               src={grabkyLogo}
-              alt="Grabky"
+              alt="Grabky Technologies"
               className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          <div className="hidden md:flex items-center gap-7 lg:gap-9">
             <a href="#portfolio" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
               Portfolio
             </a>
             <a href="#services" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
               Services
             </a>
+            <a href="#services" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
+              Staffing
+            </a>
             <a href="#about" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
               About Us
             </a>
-            <a href="#blog" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
-              Blog
+            <a href="#contact" className="text-[15px] font-medium text-gray-700 hover:text-black transition-colors">
+              Contact Us
             </a>
           </div>
 
           {/* Right Controls */}
-          <div className="hidden sm:flex items-center gap-5">
-            {/* Language Selector */}
-            <button className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 hover:text-black transition-colors">
-              <span>ENG</span>
-              <ChevronDown className="w-3.5 h-3.5 text-gray-600 stroke-[2.5]" />
-            </button>
-
+          <div className="hidden sm:flex items-center">
             {/* CTA Button */}
             <a
               href="#contact"
@@ -88,6 +85,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
               Services
             </a>
             <a
+              href="#services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-gray-800 hover:text-black py-1"
+            >
+              Staffing
+            </a>
+            <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-gray-800 hover:text-black py-1"
@@ -95,18 +99,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
               About Us
             </a>
             <a
-              href="#blog"
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-gray-800 hover:text-black py-1"
             >
-              Blog
+              Contact Us
             </a>
-            <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-sm font-semibold text-gray-800">ENG</span>
+            <div className="pt-2 border-t border-gray-100 flex items-center justify-end">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 bg-[#00BE80] hover:bg-[#00a872] text-black text-sm font-semibold px-4 py-2 rounded-full"
+                className="flex items-center gap-2 bg-[#00BE80] hover:bg-[#00a872] text-black text-sm font-semibold px-5 py-2.5 rounded-full"
               >
                 <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -118,4 +121,3 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     </header>
   );
 };
-

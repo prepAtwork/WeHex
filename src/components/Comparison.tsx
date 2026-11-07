@@ -11,40 +11,46 @@ interface ComparisonRow {
 
 const tableData: ComparisonRow[] = [
   {
-    feature: 'AI-First Logic',
-    agencies: { text: 'Limited AI usage', status: 'warning' },
-    freelancers: { text: 'Rarely AI-based', status: 'cross' },
-    grabky: { text: 'Fully AI-embedded', status: 'check' },
+    feature: 'Team Structure',
+    agencies: { text: 'Large, layered teams', status: 'warning' },
+    freelancers: { text: 'Individual expertise', status: 'warning' },
+    grabky: { text: 'Dedicated multidisciplinary team', status: 'check' },
   },
   {
-    feature: 'Development Speed',
-    agencies: { text: 'Structured but slow', status: 'warning' },
-    freelancers: { text: 'Inconsistent timelines', status: 'cross' },
-    grabky: { text: 'Rapid agile cycles', status: 'check' },
+    feature: 'Design & Development',
+    agencies: { text: 'Often separate teams', status: 'warning' },
+    freelancers: { text: 'Limited resources', status: 'cross' },
+    grabky: { text: 'Seamlessly connected', status: 'check' },
   },
   {
-    feature: 'Scalable Tech Stack',
-    agencies: { text: 'Legacy-heavy systems', status: 'warning' },
-    freelancers: { text: 'Short-term builds', status: 'cross' },
-    grabky: { text: 'Built for scale (Next.js/AWS)', status: 'check' },
+    feature: 'Flexibility',
+    agencies: { text: 'Rigid processes', status: 'cross' },
+    freelancers: { text: 'Flexible availability', status: 'warning' },
+    grabky: { text: 'Adaptable to your needs', status: 'check' },
   },
   {
     feature: 'Communication',
-    agencies: { text: 'Account managers only', status: 'warning' },
-    freelancers: { text: 'Solo execution', status: 'cross' },
-    grabky: { text: 'Direct Founder access', status: 'check' },
+    agencies: { text: 'Multiple points of contact', status: 'warning' },
+    freelancers: { text: 'Direct but individual', status: 'warning' },
+    grabky: { text: 'Direct team communication', status: 'check' },
   },
   {
-    feature: 'System Delivery',
-    agencies: { text: 'Deadline-driven releases', status: 'check' },
-    freelancers: { text: 'Quality varies', status: 'warning' },
-    grabky: { text: 'Production-ready & tested', status: 'check' },
+    feature: 'Project Ownership',
+    agencies: { text: 'Process-driven delivery', status: 'warning' },
+    freelancers: { text: 'Individual responsibility', status: 'cross' },
+    grabky: { text: 'End-to-end ownership', status: 'check' },
   },
   {
-    feature: 'Long-term Support',
-    agencies: { text: 'Contract-based support', status: 'warning' },
-    freelancers: { text: 'Limited availability', status: 'warning' },
-    grabky: { text: 'Continuous optimization', status: 'check' },
+    feature: 'Scalability',
+    agencies: { text: 'Often higher overhead', status: 'cross' },
+    freelancers: { text: 'Limited capacity', status: 'cross' },
+    grabky: { text: 'Built to grow with you', status: 'check' },
+  },
+  {
+    feature: 'Ongoing Support',
+    agencies: { text: 'Separate support contracts', status: 'warning' },
+    freelancers: { text: 'Availability varies', status: 'cross' },
+    grabky: { text: 'Long-term partnership', status: 'check' },
   },
 ];
 
@@ -71,8 +77,11 @@ export const Comparison: React.FC = () => {
         </div>
 
         {/* Section Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-12 sm:mb-16 text-center">
-          Where other stop, We Continue
+        <h2 
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-12 sm:mb-16 text-center"
+          style={{ lineHeight: 1.36 }}
+        >
+          Not just another agency. A partner in your growth.
         </h2>
 
         {/* Comparison Table Box */}
@@ -91,8 +100,7 @@ export const Comparison: React.FC = () => {
                 </th>
                 <th className="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#00BE80]">
                   <div className="flex items-center gap-2">
-                    <img src={grabkyLogoWhite} alt="Grabky" className="h-4 w-auto inline-block object-contain" />
-                    <span>AT GRABKY</span>
+                    <img src={grabkyLogoWhite} alt="Grabky" className="h-5 w-auto inline-block object-contain" />
                   </div>
                 </th>
               </tr>
@@ -124,8 +132,8 @@ export const Comparison: React.FC = () => {
                     </div>
                   </td>
 
-                  {/* At Grabky */}
-                  <td className="py-5 px-6 text-xs sm:text-sm font-medium text-white bg-white/[0.02]">
+                  {/* Grabky Column (Highlighted) */}
+                  <td className="py-5 px-6 text-xs sm:text-sm font-medium text-white bg-white/[0.03] border-l border-r border-[#00BE80]/20">
                     <div className="flex items-center gap-2">
                       {renderStatusIcon(row.grabky.status)}
                       <span className="font-semibold text-[#00BE80]">{row.grabky.text}</span>
@@ -141,4 +149,3 @@ export const Comparison: React.FC = () => {
     </section>
   );
 };
-

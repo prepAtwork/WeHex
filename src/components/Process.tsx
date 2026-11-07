@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Layers, Code2, Rocket, Wrench } from 'lucide-react';
+import { Search, PenTool, Code2, Rocket, TrendingUp } from 'lucide-react';
 import processDevImg from '../assets/process-developer.jpg';
 
 interface Step {
@@ -11,34 +11,34 @@ interface Step {
 
 const steps: Step[] = [
   {
-    num: '(1)',
-    title: 'Meeting',
-    desc: 'We explore your business for automation and growth opportunities.',
-    icon: <Calendar className="w-4 h-4 text-gray-800" />,
+    num: '01',
+    title: '01 — Discover',
+    desc: 'We understand your business, goals and challenges to identify the right opportunities and define a clear direction.',
+    icon: <Search className="w-4 h-4 text-gray-800" />,
   },
   {
-    num: '(2)',
-    title: 'Prototype',
-    desc: 'We turn ideas into blueprints and designs for validation.',
-    icon: <Layers className="w-4 h-4 text-gray-800" />,
+    num: '02',
+    title: '02 — Plan & Design',
+    desc: 'We shape your ideas into practical strategies, intuitive user experiences and detailed product designs.',
+    icon: <PenTool className="w-4 h-4 text-gray-800" />,
   },
   {
-    num: '(3)',
-    title: 'Development',
-    desc: 'Engineers build modern solutions for speed and security.',
+    num: '03',
+    title: '03 — Develop',
+    desc: 'Our team brings everything together, building reliable, scalable digital products tailored to your needs.',
     icon: <Code2 className="w-4 h-4 text-gray-800" />,
   },
   {
-    num: '(4)',
-    title: 'Launch',
-    desc: 'We ensure a flawless go-live experience after stress testing.',
+    num: '04',
+    title: '04 — Launch',
+    desc: 'We test, refine and deploy your product, making sure everything is ready for the real world.',
     icon: <Rocket className="w-4 h-4 text-gray-800" />,
   },
   {
-    num: '(5)',
-    title: 'Maintenance:',
-    desc: 'We provide ongoing optimization to keep your tech ahead.',
-    icon: <Wrench className="w-4 h-4 text-gray-800" />,
+    num: '05',
+    title: '05 — Support & Grow',
+    desc: 'We provide ongoing maintenance, improvements and guidance to help your product evolve with your business.',
+    icon: <TrendingUp className="w-4 h-4 text-gray-800" />,
   },
 ];
 
@@ -61,7 +61,7 @@ export const Process: React.FC = () => {
             <div className="rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100 group">
               <img
                 src={processDevImg}
-                alt="Developer working on architecture and code"
+                alt="Developer working on product architecture"
                 className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
               />
             </div>
@@ -70,8 +70,11 @@ export const Process: React.FC = () => {
           {/* Right: Headline and Connected Step Timeline */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.15] mb-10">
-              From initial spark to scalable reality.
+            <h2 
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight mb-10"
+              style={{ lineHeight: 1.36 }}
+            >
+              A clear process. From idea to impact.
             </h2>
 
             {/* Steps Container */}
@@ -88,15 +91,15 @@ export const Process: React.FC = () => {
 
                   {/* Step Content */}
                   <div className="flex-1 pt-0.5">
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5">
                       <div className="text-gray-800">
                         {step.icon}
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-[1.3]">
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-500 font-normal leading-[1.65]">
                       {step.desc}
                     </p>
                   </div>
@@ -112,4 +115,3 @@ export const Process: React.FC = () => {
     </section>
   );
 };
-

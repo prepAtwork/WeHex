@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Cpu, Phone } from 'lucide-react';
 import ctaBg from '../assets/cta-bg-clean.jpg';
-import leoHead from '../assets/testimonial-2-head.jpg';
+import akshatImg from '../assets/akshat-tiwari.jpg';
 
 export const ContactCTA: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     whatsapp: '',
-    serviceType: 'AI & Automations',
-    budget: '$2,000 - $4000',
-    details: 'We want a custom AI to improve logistics with predictive analytics, automated dispatch, and real-time tracking......',
+    serviceType: 'App Development',
+    budget: '₹1,00,000 – ₹2,50,000',
+    details: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -18,7 +18,7 @@ export const ContactCTA: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
@@ -46,14 +46,14 @@ export const ContactCTA: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-[#00BE80] flex items-center justify-center mx-auto mb-4 text-black">
                     <ArrowUpRight className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Request Received!</h3>
-                  <p className="text-gray-500 text-sm">Our founders will reach out within 2 hours.</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-[1.3]">Request Received!</h3>
+                  <p className="text-gray-500 text-sm leading-[1.6]">Our team will reach out to you within 2 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                    <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                       Enter your full name
                     </label>
                     <input
@@ -62,14 +62,14 @@ export const ContactCTA: React.FC = () => {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors placeholder:text-gray-400"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors placeholder:text-gray-400"
                     />
                   </div>
 
                   {/* Email & WhatsApp Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Email
                       </label>
                       <input
@@ -78,19 +78,20 @@ export const ContactCTA: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors placeholder:text-gray-400"
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors placeholder:text-gray-400"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Whatsapp
                       </label>
                       <input
                         type="text"
-                        placeholder="+1 111 1234567"
+                        placeholder="+91 9876543210"
                         value={formData.whatsapp}
                         onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors placeholder:text-gray-400"
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -98,48 +99,50 @@ export const ContactCTA: React.FC = () => {
                   {/* Service Type & Project Budget Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Service type
                       </label>
                       <select
                         value={formData.serviceType}
                         onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
                       >
-                        <option value="AI & Automations">AI & Automations</option>
-                        <option value="Web & Software Development">Web & Software Development</option>
-                        <option value="Design & Branding">Design & Branding</option>
-                        <option value="Maintenance & Consulting">Maintenance & Consulting</option>
+                        <option value="App Development">App Development</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Product Design (UI/UX)">Product Design (UI/UX)</option>
                         <option value="Staffing">Staffing</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Maintenance & Consulting">Maintenance & Consulting</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Project budget
                       </label>
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
                       >
-                        <option value="$2,000 - $4000">$2,000 - $4000</option>
-                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                        <option value="$25,000+">$25,000+</option>
+                        <option value="₹50,000 – ₹1,00,000">₹50,000 – ₹1,00,000</option>
+                        <option value="₹1,00,000 – ₹2,50,000">₹1,00,000 – ₹2,50,000</option>
+                        <option value="₹2,50,000 – ₹5,00,000">₹2,50,000 – ₹5,00,000</option>
+                        <option value="₹5,00,000+">₹5,00,000+</option>
                       </select>
                     </div>
                   </div>
 
                   {/* Project Details */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                    <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                       Project Details
                     </label>
                     <textarea
                       rows={3}
+                      placeholder="Tell us about your project. For example: We need a mobile application for our business with user registration, payments, an admin dashboard and real-time notifications."
                       value={formData.details}
                       onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-black focus:bg-white transition-colors placeholder:text-gray-400"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors placeholder:text-gray-400 leading-[1.6]"
                     />
                   </div>
 
@@ -166,10 +169,13 @@ export const ContactCTA: React.FC = () => {
             
             {/* Headline & Subtitle */}
             <div className="mb-8">
-              <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.1] mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+              <h2 
+                className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]"
+                style={{ lineHeight: 1.3 }}
+              >
                 Let's Talk
               </h2>
-              <p className="text-white text-base sm:text-lg font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]">
+              <p className="text-white text-base sm:text-lg font-medium leading-[1.6] drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]">
                 We dive deep into your business goals and technical requirements.
               </p>
             </div>
@@ -183,7 +189,7 @@ export const ContactCTA: React.FC = () => {
                 <h4 className="text-white font-bold text-base mb-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
                   Production-Ready
                 </h4>
-                <p className="text-white/95 text-xs sm:text-sm leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">
+                <p className="text-white/95 text-xs sm:text-sm leading-[1.6] drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">
                   We deliver stable, secure code ready for traffic.
                 </p>
               </div>
@@ -195,51 +201,45 @@ export const ContactCTA: React.FC = () => {
                 <h4 className="text-white font-bold text-base mb-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
                   Scalable Architecture
                 </h4>
-                <p className="text-white/95 text-xs sm:text-sm leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">
-                  Built on modern stacks (Next.js, AWS) to grow from 100 to 100k users.
+                <p className="text-white/95 text-xs sm:text-sm leading-[1.6] drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">
+                  Built on modern stacks (Next.js, AWS) to grow seamlessly.
                 </p>
               </div>
             </div>
 
-            {/* Floating Direct Founder Access Card */}
-            <div className="bg-white/95 backdrop-blur-md rounded-[28px] p-5 sm:p-6 shadow-2xl border border-white/80 flex flex-col sm:flex-row items-center sm:items-start gap-5">
-              {/* Founder Image (Leo) */}
-              <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden flex-shrink-0 bg-[#dfc2b6] border border-gray-100 shadow-xs">
+            {/* Floating Contact Card: Akshat Tiwari */}
+            <div className="bg-white/95 backdrop-blur-md rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 shadow-2xl border border-white/80 flex items-center gap-5 sm:gap-6">
+              {/* Profile Image (Akshat Tiwari) */}
+              <div className="w-32 sm:w-36 md:w-40 h-44 sm:h-48 md:h-52 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-200/80 shadow-xs">
                 <img
-                  src={leoHead}
-                  alt="Founder Leo"
+                  src={akshatImg}
+                  alt="Akshat Tiwari - Sales & Operations"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
 
-              {/* Founder Details */}
-              <div className="flex-1 text-center sm:text-left">
-                <h4 className="text-lg font-bold text-gray-900 mb-1">
-                  Direct Founder Access
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed mb-4">
-                  Skip the account managers. You'll have a direct line to the technical leads building your product for maximum clarity and speed.
-                </p>
+              {/* Contact Details — exact vertical bounds matching the image */}
+              <div className="flex-1 h-44 sm:h-48 md:h-52 flex flex-col justify-between text-left">
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Akshat Tiwari
+                  </h4>
+                  <p className="text-[11px] sm:text-xs font-bold text-[#00BE80] uppercase tracking-wider mt-1 mb-2">
+                    SALES &amp; OPERATIONS
+                  </p>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-snug sm:leading-relaxed">
+                    Direct line to discuss scope, timeline, and kickstart your project without bureaucratic delays.
+                  </p>
+                </div>
 
-                {/* Quick Chat & Schedule Links */}
-                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                {/* Single CTA Button: Contact Now pointing to tel:+919399456476 */}
+                <div>
                   <a
-                    href="https://wa.me/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+                    href="tel:+919399456476"
+                    className="inline-flex items-center gap-2 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95"
                   >
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#25d366] flex items-center justify-center text-white">
-                      <MessageCircle className="w-2 h-2 fill-white" />
-                    </div>
-                    <span>Quick Chat</span>
-                  </a>
-
-                  <a
-                    href="#contact"
-                    className="text-xs font-bold text-gray-900 underline hover:text-black transition-colors"
-                  >
-                    Schedule a Call
+                    <Phone className="w-3.5 h-3.5 fill-black stroke-none" />
+                    <span>Contact Now (+91 93994 56476)</span>
                   </a>
                 </div>
               </div>
