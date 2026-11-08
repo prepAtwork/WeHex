@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, Phone, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Cpu, Phone, ChevronDown, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import ctaBg from '../assets/cta-bg-clean.jpg';
 import akshatImg from '../assets/akshat-tiwari.jpg';
 
@@ -13,12 +13,54 @@ export const ContactCTA: React.FC = () => {
     details: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '245d0970-febf-4894-8b3c-5f1d54855557',
+          subject: `New Strategy Call Request: ${formData.fullName} (${formData.serviceType})`,
+          from_name: 'Grabky Website',
+          name: formData.fullName,
+          email: formData.email,
+          whatsapp: formData.whatsapp,
+          service_type: formData.serviceType,
+          budget: formData.budget,
+          message: formData.details || 'No additional details provided',
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+        setFormData({
+          fullName: '',
+          email: '',
+          whatsapp: '',
+          serviceType: 'App Development',
+          budget: '₹1,00,000 – ₹2,50,000',
+          details: '',
+        });
+      } else {
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setErrorMessage('Unable to connect to the server. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,15 +84,31 @@ export const ContactCTA: React.FC = () => {
             <div className="bg-white/95 backdrop-blur-md rounded-[32px] p-6 sm:p-8 shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-white/80">
               
               {submitted ? (
-                <div className="py-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#00BE80] flex items-center justify-center mx-auto mb-4 text-black">
-                    <ArrowUpRight className="w-8 h-8" />
+                <div className="py-10 text-center">
+                  <div className="w-16 h-16 rounded-full bg-[#00BE80]/20 text-[#00BE80] flex items-center justify-center mx-auto mb-4 border border-[#00BE80]/40">
+                    <CheckCircle2 className="w-9 h-9 stroke-[2.3]" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-[1.3]">Request Received!</h3>
-                  <p className="text-gray-500 text-sm leading-[1.6]">Our team will reach out to you within 2 hours.</p>
+                  <p className="text-gray-500 text-sm max-w-sm mx-auto leading-[1.6]">
+                    Thank you for reaching out. We have received your project details and our team will get in touch with you within 2 hours.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#00BE80] hover:text-[#009b68] transition-colors"
+                  >
+                    <span>Send another inquiry</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
+                      <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-500" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
                   {/* Full Name */}
                   <div>
                     <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
@@ -160,11 +218,18 @@ export const ContactCTA: React.FC = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full group flex items-center justify-between bg-[#00BE80] hover:bg-[#00a872] text-black font-bold pl-6 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(0,190,128,0.35)] transition-all hover:scale-[1.01]"
+                      disabled={isSubmitting}
+                      className="w-full group flex items-center justify-between bg-[#00BE80] hover:bg-[#00a872] disabled:opacity-75 disabled:cursor-not-allowed text-black font-bold pl-6 pr-2 py-2 rounded-full shadow-[0_4px_20px_rgba(0,190,128,0.35)] transition-all hover:scale-[1.01] active:scale-[0.99]"
                     >
-                      <span className="text-[15px]">Schedule a Strategy Call</span>
+                      <span className="text-[15px]">
+                        {isSubmitting ? 'Sending Request...' : 'Schedule a Strategy Call'}
+                      </span>
                       <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-200">
-                        <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                        {isSubmitting ? (
+                          <Loader2 className="w-4 h-4 animate-spin text-white" />
+                        ) : (
+                          <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                        )}
                       </div>
                     </button>
                   </div>

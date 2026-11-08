@@ -1,11 +1,16 @@
 import React, { useRef } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ankitInvesto from '../assets/ankit_,_investo.avif';
 import rajJatav from '../assets/raj-jatav.jpg';
 import vytlHealth from '../assets/vytl-health.jpg';
 import happierMeditation from '../assets/happier-meditation.jpg';
 import shortfilmshow from '../assets/shortfilmshow.jpg';
 import daveBenz from '../assets/dave_benz.avif';
+import logoInvesto from '../assets/logo-investo.png';
+import logoZinnikart from '../assets/logo-zinnikart.png';
+import logoVytl from '../assets/logo-vytl.png';
+import logoHappierMeditation from '../assets/logo-happier-meditation.png';
+import logoShortFilmShow from '../assets/logo-shortfilmshow.png';
 
 interface Review {
   id: string;
@@ -14,7 +19,7 @@ interface Review {
   company: string;
   quote: string;
   image: string;
-  bgColor: string;
+  logo?: string;
 }
 
 const reviews: Review[] = [
@@ -25,7 +30,7 @@ const reviews: Review[] = [
     company: 'Investo',
     quote: 'Grabky Team understood our vision from day one and helped us turn complex ideas into a clean, intuitive product. Their team was proactive, detail-oriented, and consistently delivered beyond expectations.',
     image: ankitInvesto,
-    bgColor: '#dbeafe',
+    logo: logoInvesto,
   },
   {
     id: 'raj',
@@ -34,7 +39,7 @@ const reviews: Review[] = [
     company: 'ZiniKart',
     quote: 'What stood out most was their ability to move fast without compromising quality. From product planning to execution, Grabky Team felt like an extension of our own team.',
     image: rajJatav,
-    bgColor: '#dcfce7',
+    logo: logoZinnikart,
   },
   {
     id: 'ben',
@@ -43,7 +48,7 @@ const reviews: Review[] = [
     company: 'VYTL Health',
     quote: 'We needed a platform that was reliable, scalable, and easy for patients to use. The Grabky Team delivered exactly that while maintaining clear communication throughout the project.',
     image: vytlHealth,
-    bgColor: '#fef3c7',
+    logo: logoVytl,
   },
   {
     id: 'michael',
@@ -52,7 +57,7 @@ const reviews: Review[] = [
     company: 'Happier Meditation',
     quote: 'The team brought a thoughtful approach to both design and development. They helped simplify the user journey and created an experience that aligned perfectly with our brand.',
     image: happierMeditation,
-    bgColor: '#f3e8ff',
+    logo: logoHappierMeditation,
   },
   {
     id: 'david',
@@ -61,7 +66,7 @@ const reviews: Review[] = [
     company: 'The Short Film Show',
     quote: 'Working with Grabky Team was refreshingly straightforward. They understood our requirements quickly, offered valuable suggestions, and delivered a polished product on schedule.',
     image: shortfilmshow,
-    bgColor: '#ffedd5',
+    logo: logoShortFilmShow,
   },
   {
     id: 'dave',
@@ -70,7 +75,6 @@ const reviews: Review[] = [
     company: 'Tixscape',
     quote: 'Grabky Team delivered a high-quality mobile application with strong attention to performance and detail. Communication was clear throughout the project, and the final product met all our expectations.',
     image: daveBenz,
-    bgColor: '#e0e7ff',
   },
 ];
 
@@ -124,50 +128,61 @@ export const Reviews: React.FC = () => {
           </div>
         </div>
 
-        {/* Testimonials Cards Row */}
+        {/* Testimonials Cards Row — Full-bleed Portrait Cards with Bottom Gradient */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto pb-6 scrollbar-none no-scrollbar snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="flex-shrink-0 w-[300px] sm:w-[360px] lg:w-[380px] h-[520px] rounded-[32px] overflow-hidden relative shadow-[0_8px_30px_rgba(0,0,0,0.08)] snap-start group flex flex-col justify-between"
-              style={{ backgroundColor: review.bgColor }}
+              className="flex-shrink-0 w-[300px] sm:w-[350px] lg:w-[370px] h-[490px] sm:h-[530px] rounded-[28px] sm:rounded-[32px] overflow-hidden relative shadow-[0_12px_36px_rgba(0,0,0,0.12)] snap-start group border border-gray-100"
             >
-              {/* Person Headshot */}
-              <div className="w-full h-[60%] overflow-hidden">
-                <img
-                  src={review.image}
-                  alt={review.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+              {/* Person Headshot (Full Card) */}
+              <img
+                src={review.image}
+                alt={review.name}
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              />
 
-              {/* Bottom Frosted Dark Overlay with Review Info */}
-              <div className="h-[48%] -mt-10 p-6 sm:p-7 bg-[#1c1c20]/95 backdrop-blur-md rounded-b-[32px] text-white flex flex-col justify-between shadow-2xl border-t border-white/10">
-                <div>
-                  {/* Company Badge */}
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <Quote className="w-3.5 h-3.5 text-[#00BE80] rotate-180" />
-                    <span className="text-xs font-semibold tracking-wider text-[#00BE80] uppercase">
-                      {review.company}
-                    </span>
-                  </div>
+              {/* Seamless Bottom Vignette Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 via-48% to-transparent pointer-events-none" />
 
-                  {/* Quote Text with improved line spacing */}
-                  <p className="text-xs sm:text-sm text-gray-200 font-normal leading-[1.7] line-clamp-4">
-                    "{review.quote}"
-                  </p>
+              {/* Content Overlaid at Bottom */}
+              <div className="relative z-10 flex flex-col justify-end h-full p-6 sm:p-7 text-white">
+                {/* Company Logo or Badge */}
+                <div className="flex items-center gap-2 mb-3.5">
+                  {review.logo ? (
+                    <img
+                      src={review.logo}
+                      alt={review.company}
+                      className="h-4 sm:h-5 w-auto max-w-[130px] object-contain brightness-0 invert opacity-95"
+                    />
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00BE80]" />
+                      </div>
+                      <span className="text-xs sm:text-[13px] font-semibold text-white/95 tracking-wide">
+                        {review.company}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
+                {/* Quote Text */}
+                <p className="text-xs sm:text-[13.5px] text-white/90 font-normal leading-[1.65] line-clamp-4 mb-4">
+                  "{review.quote}"
+                </p>
+
                 {/* Author & Role */}
-                <div className="pt-2 border-t border-white/10">
-                  <h4 className="text-base font-bold text-white">
+                <div className="pt-2 border-t border-white/15">
+                  <h4 className="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
                     {review.name}
                   </h4>
-                  <p className="text-xs text-gray-400">
-                    {review.role}, {review.company}
+                  <p className="text-xs sm:text-[13px] text-white/70 font-normal mt-0.5">
+                    {review.role} @ {review.company}
                   </p>
                 </div>
               </div>

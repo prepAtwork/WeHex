@@ -34,7 +34,37 @@
   animation-play-state: paused;
 }
 
-/* Custom Scrollbar */
+@keyframes marquee-services {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-services {
+  display: flex;
+  width: max-content;
+  animation: marquee-services 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-services:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbars for carousel / ticker containers */
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Custom Scrollbar for page root */
 ::-webkit-scrollbar {
   width: 8px;
 }
