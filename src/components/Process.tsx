@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Search, PenTool, Code2, Rocket, TrendingUp } from 'lucide-react';
-import processDevImg from '../assets/process-developer.jpg';
+import processVideo from '../assets/OurProcess.mp4';
 
 interface Step {
   num: string;
@@ -43,6 +43,15 @@ const steps: Step[] = [
 ];
 
 export const Process: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <section className="bg-white py-20 sm:py-28 border-b border-gray-100 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,12 +65,17 @@ export const Process: React.FC = () => {
         {/* 2-Column Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left: Developer Photo Card */}
+          {/* Left: Process Video Card */}
           <div className="lg:col-span-6">
-            <div className="rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100 group">
-              <img
-                src={processDevImg}
-                alt="Developer working on product architecture"
+            <div className="rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100 group bg-black">
+              <video
+                ref={videoRef}
+                src={processVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
                 className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
               />
             </div>

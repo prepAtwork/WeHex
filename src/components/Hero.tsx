@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import heroBg from '../assets/HeroSection bg.png';
+import heroBg from '../assets/HeroSectionBG.png';
 
 export const Hero: React.FC = () => {
   return (

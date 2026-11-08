@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import aboutWaveImg from '../assets/about-wave.jpg';
+import aboutVideo from '../assets/AboutUs.mp4';
 
 export const AboutUs: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
   return (
     <section id="about" className="bg-white py-20 sm:py-28 border-b border-gray-100 w-full">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,11 +68,16 @@ export const AboutUs: React.FC = () => {
         {/* Bottom Visual Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
-          {/* Card 1: Colorful 3D Fluid Art */}
-          <div className="md:col-span-5 relative rounded-[28px] overflow-hidden group shadow-md min-h-[260px] border border-gray-100">
-            <img
-              src={aboutWaveImg}
-              alt="Digital product design artwork"
+          {/* Card 1: 3D Video Artwork */}
+          <div className="md:col-span-5 relative rounded-[28px] overflow-hidden group shadow-md min-h-[260px] border border-gray-100 bg-black">
+            <video
+              ref={videoRef}
+              src={aboutVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
