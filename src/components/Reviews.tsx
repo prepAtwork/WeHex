@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import ankitInvesto from '../assets/ankit_,_investo.avif';
-import rajJatavZinikart from '../assets/raj_jatav__zinikart.avif';
-import vytlHealth from '../assets/vytl_health.avif';
-import happierMeditation from '../assets/happier_meditation.avif';
-import shortfilmshow from '../assets/shortfilmshow.avif';
+import rajJatav from '../assets/raj-jatav.jpg';
+import vytlHealth from '../assets/vytl-health.jpg';
+import happierMeditation from '../assets/happier-meditation.jpg';
+import shortfilmshow from '../assets/shortfilmshow.jpg';
 import daveBenz from '../assets/dave_benz.avif';
 
 interface Review {
@@ -33,7 +33,7 @@ const reviews: Review[] = [
     role: 'Founder & CEO',
     company: 'ZiniKart',
     quote: 'What stood out most was their ability to move fast without compromising quality. From product planning to execution, Grabky Team felt like an extension of our own team.',
-    image: rajJatavZinikart,
+    image: rajJatav,
     bgColor: '#dcfce7',
   },
   {

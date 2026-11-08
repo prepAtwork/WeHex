@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, Phone } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Cpu, Phone, ChevronDown } from 'lucide-react';
 import ctaBg from '../assets/cta-bg-clean.jpg';
 import akshatImg from '../assets/akshat-tiwari.jpg';
 
@@ -102,33 +102,43 @@ export const ContactCTA: React.FC = () => {
                       <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Service type
                       </label>
-                      <select
-                        value={formData.serviceType}
-                        onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
-                      >
-                        <option value="App Development">App Development</option>
-                        <option value="Web Development">Web Development</option>
-                        <option value="Product Design (UI/UX)">Product Design (UI/UX)</option>
-                        <option value="Staffing">Staffing</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
-                        <option value="Maintenance & Consulting">Maintenance & Consulting</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          value={formData.serviceType}
+                          onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                          className="w-full appearance-none pl-4 pr-10 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
+                        >
+                          <option value="App Development">App Development</option>
+                          <option value="Web Development">Web Development</option>
+                          <option value="Product Design (UI/UX)">Product Design (UI/UX)</option>
+                          <option value="Staffing">Staffing</option>
+                          <option value="Digital Marketing">Digital Marketing</option>
+                          <option value="Maintenance & Consulting">Maintenance & Consulting</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-500">
+                          <ChevronDown className="w-4 h-4 stroke-[2.2]" />
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-800 mb-1.5 leading-normal">
                         Project budget
                       </label>
-                      <select
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
-                      >
-                        <option value="₹50,000 – ₹1,00,000">₹50,000 – ₹1,00,000</option>
-                        <option value="₹1,00,000 – ₹2,50,000">₹1,00,000 – ₹2,50,000</option>
-                        <option value="₹2,50,000 – ₹5,00,000">₹2,50,000 – ₹5,00,000</option>
-                        <option value="₹5,00,000+">₹5,00,000+</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          value={formData.budget}
+                          onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                          className="w-full appearance-none pl-4 pr-10 py-3 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#00BE80] focus:bg-white transition-colors cursor-pointer"
+                        >
+                          <option value="₹50,000 – ₹1,00,000">₹50,000 – ₹1,00,000</option>
+                          <option value="₹1,00,000 – ₹2,50,000">₹1,00,000 – ₹2,50,000</option>
+                          <option value="₹2,50,000 – ₹5,00,000">₹2,50,000 – ₹5,00,000</option>
+                          <option value="₹5,00,000+">₹5,00,000+</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-500">
+                          <ChevronDown className="w-4 h-4 stroke-[2.2]" />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -208,9 +218,9 @@ export const ContactCTA: React.FC = () => {
             </div>
 
             {/* Floating Contact Card: Akshat Tiwari */}
-            <div className="bg-white/95 backdrop-blur-md rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 shadow-2xl border border-white/80 flex items-center gap-5 sm:gap-6">
+            <div className="bg-white/95 backdrop-blur-md rounded-[24px] sm:rounded-[28px] p-4 sm:p-5 shadow-2xl border border-white/80 flex items-center gap-4 sm:gap-5">
               {/* Profile Image (Akshat Tiwari) */}
-              <div className="w-32 sm:w-36 md:w-40 h-44 sm:h-48 md:h-52 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-200/80 shadow-xs">
+              <div className="w-24 sm:w-28 h-24 sm:h-28 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-200/80 shadow-xs">
                 <img
                   src={akshatImg}
                   alt="Akshat Tiwari - Sales & Operations"
@@ -218,17 +228,14 @@ export const ContactCTA: React.FC = () => {
                 />
               </div>
 
-              {/* Contact Details — exact vertical bounds matching the image */}
-              <div className="flex-1 h-44 sm:h-48 md:h-52 flex flex-col justify-between text-left">
+              {/* Contact Details — compact and proportionate to image */}
+              <div className="flex-1 h-24 sm:h-28 flex flex-col justify-between text-left py-0.5">
                 <div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
                     Akshat Tiwari
                   </h4>
-                  <p className="text-[11px] sm:text-xs font-bold text-[#00BE80] uppercase tracking-wider mt-1 mb-2">
+                  <p className="text-[11px] sm:text-xs font-bold text-[#00BE80] uppercase tracking-wider mt-0.5">
                     SALES &amp; OPERATIONS
-                  </p>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-snug sm:leading-relaxed">
-                    Direct line to discuss scope, timeline, and kickstart your project without bureaucratic delays.
                   </p>
                 </div>
 
@@ -236,7 +243,7 @@ export const ContactCTA: React.FC = () => {
                 <div>
                   <a
                     href="tel:+919399456476"
-                    className="inline-flex items-center gap-2 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95"
+                    className="inline-flex items-center gap-2 bg-[#00BE80] hover:bg-[#00a872] text-black text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95"
                   >
                     <Phone className="w-3.5 h-3.5 fill-black stroke-none" />
                     <span>Contact Now (+91 93994 56476)</span>
